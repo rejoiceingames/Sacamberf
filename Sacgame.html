@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucumberf World - All Games in One</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://thumb.ac-illust.com/8f/8f9206971de5e7cb01d2a1707f11ee73_t.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            color: black;
+            animation: fadeIn 2s ease-out;
+            margin: 10px;
+        }
+        
+        /* Scrollable Container */
+        .scroll-container {
+            max-height: 70vh; /* Adjust the height */
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .game-button {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            max-width: 400px;
+            margin: 0 auto;
+            border: none;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+        }
+        
+        .game-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .game-button span {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            color: white;
+            font-size: 1.5em;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/005/384/360/small_2x/abstract-seamless-pattern-of-many-hearts-on-blue-background-cute-image-simple-style-can-be-use-for-print-paper-fabric-wallpaper-free-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        #loading h1 {
+            color: black;
+            font-size: 2.5em;
+            animation: pulse 2s infinite;
+        }
+        
+        #main-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        #main-content.show {
+            display: block;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .game-button { height: 200px; }
+            #loading h1 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="loading">
+        <h1>Loading...!</h1>
+        <p></p>
+    </div>
+
+    <div id="main-content">
+        <h1>Sucumberf World</h1>
+        <h2>Choose Your Game</h2>
+
+        <!-- Scrollable Div -->
+        <div class="scroll-container">
+            <div class="game-container">
+                <a href="https://shreyavernekar0.github.io/Sacumberf/sucumberf.html.html" class="game-button" style="background-image: url('https://i.postimg.cc/zX0F6Fjb/Screenshot-2024-11-30-202123-removebg-preview.png');">
+                    <span>Mininta</span>
+                </a>
+                <a href="https://shreyavernekar0.github.io/Sacumberf/sucumberf2.html" class="game-button" style="background-image: url('https://i.postimg.cc/4xHHP6FT/Screenshot-2024-11-30-202413-removebg-preview.png');">
+                    <span>Puzzle</span>
+                </a>
+                <a href="https://shreyavernekar0.github.io/Sacumberf/TakTak.html" class="game-button" style="background-image: url('https://i.postimg.cc/7LMGm5wm/Screenshot-2025-01-29-194811-removebg-preview.png');">
+                    <span>Tak Tak</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loading = document.getElementById("loading");
+        const mainContent = document.getElementById("main-content");
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loading.style.opacity = 0;
+                setTimeout(() => {
+                    loading.style.display = "none";
+                    mainContent.classList.add("show");
+                }, 1000);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+
